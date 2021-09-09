@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefaultASPNETApp", "RSVPform\DefaultASPNETApp.csproj", "{04E4C064-B8D3-4833-A2CC-A3661A556495}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSVPsite", "RSVPsite\RSVPsite.csproj", "{AC4617DC-1FF9-4CA6-B0EB-6C0DC397FD43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04E4C064-B8D3-4833-A2CC-A3661A556495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04E4C064-B8D3-4833-A2CC-A3661A556495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04E4C064-B8D3-4833-A2CC-A3661A556495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04E4C064-B8D3-4833-A2CC-A3661A556495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC4617DC-1FF9-4CA6-B0EB-6C0DC397FD43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC4617DC-1FF9-4CA6-B0EB-6C0DC397FD43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC4617DC-1FF9-4CA6-B0EB-6C0DC397FD43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC4617DC-1FF9-4CA6-B0EB-6C0DC397FD43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D63957F-2AA9-49EB-B977-D9554EADA9A3}
+	EndGlobalSection
+EndGlobal
