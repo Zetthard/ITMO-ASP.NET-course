@@ -70,6 +70,8 @@
     <Content Include="Default.aspx" />
     <Content Include="Reg.aspx" />
     <Content Include="RSVPstyleSheet.css" />
+    <Content Include="seeyouthere.html" />
+    <Content Include="sorrynexttime.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

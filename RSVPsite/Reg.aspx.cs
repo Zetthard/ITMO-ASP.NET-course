@@ -11,7 +11,21 @@ namespace RSVPsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+            {
+                GuestResponse newResponse = new GuestResponse(name.Text, email.Text, 
+                    phone.Text, PresentYN.Checked);
+                ResponseRepository.GetRepository().AddResponse(newResponse);
 
+                if (newResponse.WillAttend.HasValue && newResponse.WillAttend.Value)
+                {
+                    Response.Redirect("seeyouthere.html");
+                }
+                else
+                {
+                    Response.Redirect("sorrynexttime.html");
+                }
+            }
         }
     }
 }
