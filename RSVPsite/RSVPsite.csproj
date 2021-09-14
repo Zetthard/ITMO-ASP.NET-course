@@ -72,6 +72,7 @@
     <Content Include="RSVPstyleSheet.css" />
     <Content Include="seeyouthere.html" />
     <Content Include="sorrynexttime.html" />
+    <Content Include="Summary.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +93,13 @@
       <DependentUpon>Reg.aspx</DependentUpon>
     </Compile>
     <Compile Include="ResponseRepository.cs" />
+    <Compile Include="Summary.aspx.cs">
+      <DependentUpon>Summary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Summary.aspx.designer.cs">
+      <DependentUpon>Summary.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
