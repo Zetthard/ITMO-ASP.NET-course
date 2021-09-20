@@ -13,6 +13,9 @@ namespace RSVPsite
         {
             if (IsPostBack)
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                    return;
                 GuestResponse newResponse = new GuestResponse(name.Text, email.Text, 
                     phone.Text, PresentYN.Checked);
                 ResponseRepository.GetRepository().AddResponse(newResponse);
