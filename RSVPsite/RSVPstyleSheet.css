@@ -34,3 +34,23 @@ table, td, th {
     text-align: left;
     margin: 10px 0;
 }
+
+.auto-style1 {
+    width: 100%;
+}
+
+.auto-style2 {
+    height: 150px;
+}
+
+.auto-style3 {
+    height: 150px;
+    width: 200px;
+}
+
+.footer_menu li {
+    margin: 0px;
+    padding: 0 20px;
+    display: inline;
+    border-right: 1px solid #000000;
+}
