@@ -26,6 +26,8 @@
                                         Text="Регистрация"/>
                                      <asp:MenuItem NavigateUrl="~/Summary.aspx"
                                         Text="Отчет о регистрации"/>
+                                     <asp:MenuItem NavigateUrl="~/SummaryBD.aspx"
+                                         Text="Список участников" /> 
                                      <asp:MenuItem NavigateUrl="~/About.aspx" 
                                         Text="Подробности"/>
                                  </Items>
@@ -44,6 +46,7 @@
                                 <li><a href="Default.aspx">Главная</a></li>
                                 <li><a href="Reg.aspx">Регистрация</a></li>
                                 <li><a href="Summary.aspx">Отчет о регистрации</a></li>
+                                <li><a href="SummaryBD.aspx">Списиок участников</a></li>
                                 <li><a href="About.aspx">Подробности</a></li>
                             </ul>
                          </div>

@@ -81,6 +81,7 @@
     <Content Include="seeyouthere.html" />
     <Content Include="sorrynexttime.html" />
     <Content Include="Summary.aspx" />
+    <Content Include="SummaryBD.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +123,13 @@
     </Compile>
     <Compile Include="Summary.aspx.designer.cs">
       <DependentUpon>Summary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SummaryBD.aspx.cs">
+      <DependentUpon>SummaryBD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SummaryBD.aspx.designer.cs">
+      <DependentUpon>SummaryBD.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
