@@ -43,6 +43,26 @@
             <label>Are you planning to present?</label><asp:CheckBox ID="PresentYN" runat="server" />
         </div>
         <div>
+             Введите название доклада #1:
+             <asp:TextBox ID="TextBoxTitle" runat="server"
+                Width="345px"></asp:TextBox>
+             </div>
+             <div>
+             Введите аннотацию доклада #1:
+             <asp:TextBox ID="TextBoxTextAnnot" runat="server"
+                Width="345px"></asp:TextBox>
+             </div> 
+             <div>
+             Введите название доклада #2:
+             <asp:TextBox ID="TextBoxTitle2" runat="server"
+                Width="345px"></asp:TextBox>
+             </div>
+             <div>
+             Введите аннотацию доклада #2:
+             <asp:TextBox ID="TextBoxTextAnnot2" runat="server"
+             Width="345px"></asp:TextBox>
+        </div>
+        <div>
             <button type="submit">Send RSVP response</button>
         </div>
     </form>

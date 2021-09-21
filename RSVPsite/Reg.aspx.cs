@@ -19,6 +19,29 @@ namespace RSVPsite
                 GuestResponse newResponse = new GuestResponse(name.Text, email.Text, 
                     phone.Text, PresentYN.Checked);
                 ResponseRepository.GetRepository().AddResponse(newResponse);
+                if (PresentYN.Checked)
+                {
+                    Report report1 = new Report(TextBoxTitle.Text,
+                   TextBoxTextAnnot.Text);
+                    newResponse.Reports.Add(report1);
+                }
+                if (TextBoxTitle2.Text != "" || TextBoxTextAnnot2.Text != "")
+                {
+                    Report report2 = new Report(TextBoxTitle2.Text,
+                   TextBoxTextAnnot2.Text);
+                    newResponse.Reports.Add(report2);
+                }
+
+                try
+                {
+                    SampleContext context = new SampleContext();
+                    context.GuestResponses.Add(newResponse);
+                    context.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    Response.Redirect("Error " + ex.Message);
+                }
 
                 if (newResponse.WillAttend.HasValue && newResponse.WillAttend.Value)
                 {
