@@ -76,6 +76,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Reg.aspx" />
     <Content Include="RSVPstyleSheet.css" />
     <Content Include="seeyouthere.html" />
@@ -98,6 +99,9 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="GuestResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

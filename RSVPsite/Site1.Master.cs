@@ -11,7 +11,12 @@ namespace RSVPsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            long visitorsCount = 0;
+            if (Application["Visitors"] != null)
+            {
+                visitorsCount = long.Parse(Application["Visitors"].ToString());
+                VisitorLiteral.Text = "Number of visitors: " + visitorsCount.ToString();
+            }
         }
     }
 }

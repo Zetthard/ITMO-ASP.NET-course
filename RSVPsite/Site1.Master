@@ -50,6 +50,9 @@
                                 <li><a href="About.aspx">Подробности</a></li>
                             </ul>
                          </div>
+                        <div class="footer">
+                            <asp:literal ID="VisitorLiteral" runat="server" />
+                        </div>
                     </td>
                 </tr>
             </table>
