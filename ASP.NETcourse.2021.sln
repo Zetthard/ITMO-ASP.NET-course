@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefaultASPNETApp", "RSVPfor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSVPsite", "RSVPsite\RSVPsite.csproj", "{AC4617DC-1FF9-4CA6-B0EB-6C0DC397FD43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMVCR1", "WebMVCR1\WebMVCR1.csproj", "{37078772-986A-47B6-8B55-DBA1F769444E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AC4617DC-1FF9-4CA6-B0EB-6C0DC397FD43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC4617DC-1FF9-4CA6-B0EB-6C0DC397FD43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC4617DC-1FF9-4CA6-B0EB-6C0DC397FD43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37078772-986A-47B6-8B55-DBA1F769444E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37078772-986A-47B6-8B55-DBA1F769444E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37078772-986A-47B6-8B55-DBA1F769444E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37078772-986A-47B6-8B55-DBA1F769444E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
