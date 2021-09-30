@@ -1,0 +1,27 @@
+﻿@model WebMVCR1.Models.PersonRepository
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListOfPeople</title>
+</head>
+<body>
+    <div>
+        <h3>Список учатсников</h3>
+        <p>Всего зарегистрировавшихся @ViewBag.Count</p>
+        <ul>
+            @foreach (var c in ViewBag.Pers)
+            {
+                <li>@c.ToString()</li>
+            }
+        </ul>
+        <p>@Html.ActionLink("На главную", "Index")</p>
+    </div>
+</body>
+</html>
