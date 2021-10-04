@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Exam App</h1>
+    <p class="lead">This App is for tracking students exams.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-1">
+        <h3>Студенты</h3>
+        <table class="table-bordered" cellpadding="5">
+            <tr>
+                <td><h4>Имя студента</h4></td>
+            </tr>
+            @foreach (var student in ViewBag.Students)
+            {
+                <tr>
+                    <td><p>@student</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-md-2">
+        <h3>Курсы</h3>
+        <table class="table-bordered" cellpadding="5">
+            <tr>
+                <td><h4>Название курса</h4></td>
+            </tr>
+            @foreach (var course in ViewBag.Courses)
+            {
+                <tr>
+                    <td><p>@course</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+    
+</div>

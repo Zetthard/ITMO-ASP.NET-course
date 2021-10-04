@@ -1,0 +1,24 @@
+﻿@model ExamScoreSystem.Models.Student
+
+@{
+    ViewBag.Title = "AddStudent";
+}
+
+<h3>Форма добавления студента</h3>
+<form method="post" action="">
+    <table class="table">
+        <tr>
+            <td><p>Имя студента</p></td>
+            <td><input type="text" name="FirstName" /></td>
+        </tr>
+        <tr>
+            <td><p>Фамилия студента</p></td>
+            <td><input type="text" name="LastName" /></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Отправить" /></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
+
