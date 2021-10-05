@@ -6,14 +6,14 @@
 <h3>Существующие заявки</h3>
 <table class="table">
     <tr>
-        <td><p>Имя</p></td>
-        <td><p>Тип кредита</p></td>
+        <th>Имя</th>
+        <th>Тип кредита</th>
     </tr>
     @foreach (var c in ViewBag.Bids)
     {
         <tr>
-            <td><p>@c.CustomerName</p></td>
-            <td><p>@c.CreditHead</p></td>
+            <td>@c.CustomerName</td>
+            <td>@c.CreditHead</td>
         </tr>
     }
 </table>
