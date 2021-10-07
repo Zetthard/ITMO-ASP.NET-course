@@ -12,6 +12,6 @@ namespace ExamScoreSystem.Models
 
         public DbSet<Course> Courses { get; set; }
 
-        public DbSet<ExamMark> ExamMarks { get; set; }
+        public DbSet<Exam> ExamMarks { get; set; }
     }
 }

@@ -1,19 +1,19 @@
-﻿@{
+﻿@model IEnumerable<ExamScoreSystem.Models.Course>
+
+@{
     ViewBag.Title = "Courses";
 }
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
 <div class="col-md-1">
-    <h3>Курсы</h3>
     <table class="table-bordered" cellpadding="5">
         <tr>
             <td><h4>Название курса</h4></td>
         </tr>
-        @foreach (var course in ViewBag.Courses)
+        @foreach (var course in Model)
         {
             <tr>
-                <td><p>@course</p></td>
+                <td><a href="/Home/EnterExam">@course</a></td>
             </tr>
         }
     </table>

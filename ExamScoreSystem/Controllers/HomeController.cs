@@ -20,16 +20,12 @@ namespace ExamScoreSystem.Controllers
 
         public ActionResult Students()
         {
-            ViewBag.Message = "List of registered students";
-            GetStudents();
-            return View();
+            return View(context.Students.ToList());
         }
 
         public ActionResult Courses()
         {
-            ViewBag.Message = "List of courses";
-            GetCourses();
-            return View();
+            return View(context.Courses.ToList());
         }
 
         private void GetCourses()
@@ -47,16 +43,39 @@ namespace ExamScoreSystem.Controllers
         [HttpGet]
         public ActionResult AddStudent()
         {
-            GetStudents();
             return View();
         }
 
         [HttpPost]
         public ActionResult AddStudent(Student newStudent)
         {
-            context.Students.Add(newStudent);
-            context.SaveChanges();
-            return View("Students");
+            if(ModelState.IsValid)
+            {
+                context.Students.Add(newStudent);
+                context.SaveChanges();
+            }
+            return RedirectToAction("Students");
+        }
+
+        [HttpGet]
+        public ActionResult EnterExam()
+        {
+            GetStudents();
+            GetCourses();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EnterExam(Exam mark)
+        {
+            GetStudents();
+            GetCourses();
+            if (ModelState.IsValid)
+            {
+                context.ExamMarks.Add(mark);
+                context.SaveChanges();
+            }
+            return View();
         }
     }
 }

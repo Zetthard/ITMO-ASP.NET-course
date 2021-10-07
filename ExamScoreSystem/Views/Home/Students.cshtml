@@ -1,21 +1,19 @@
-﻿@{
+﻿@model IEnumerable<ExamScoreSystem.Models.Student>
+
+@{
     ViewBag.Title = "Students";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2>
 
-<p>London is the capital of Great Britain.</p>
-
-<div class="col-md-1">
-    <h3>Студенты</h3>
-    <table class="table-bordered" cellpadding="5">
+<div>
+    <table class="table-bordered">
         <tr>
-            <td><h4>Имя студента</h4></td>
+            <th>Имя и Фамилия</th>
         </tr>
-        @foreach (var student in ViewBag.Students)
+        @foreach (var student in Model)
         {
             <tr>
-                <td><p>@student</p></td>
+                <td>@student</td>
             </tr>
         }
     </table>

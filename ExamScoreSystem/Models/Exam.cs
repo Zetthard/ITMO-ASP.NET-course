@@ -1,39 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace ExamScoreSystem.Models
-{
-    public class ExamMark
+{ 
+    public class Exam
     {
-        public int ExamMarkId { get; set; }
+        public int ExamId { get; set; }
 
         private int mark;
 
+        [Range(1, 5)]
         public int Mark
         {
             get { return mark; }
 
-            private set
+            set
             {
                 if (value >= 1 && value <= 5)
                     mark = value;
             }
         }
 
-        [Required]
         public Student StudentName { get; set; }
 
-        [Required]
         public Course CourseName { get; set; }
 
-        public ExamMark(int m, Student student, Course course)
+        //public Exam() { }
+
+        public Exam(int mark)
         {
-            Mark = m;
-            StudentName = student;
-            CourseName = course;
+            Mark = mark;
         }
     }
 }

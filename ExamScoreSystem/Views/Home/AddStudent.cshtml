@@ -1,19 +1,20 @@
 ﻿@model ExamScoreSystem.Models.Student
 
 @{
-    ViewBag.Title = "AddStudent";
+    ViewBag.Title = "Add Student";
 }
 
 <h3>Форма добавления студента</h3>
 <form method="post" action="">
     <table class="table">
+        @Html.ValidationSummary()
         <tr>
             <td><p>Имя студента</p></td>
-            <td><input type="text" name="FirstName" /></td>
+            <td>@Html.TextBoxFor(model => model.FirstName)</td>
         </tr>
         <tr>
             <td><p>Фамилия студента</p></td>
-            <td><input type="text" name="LastName" /></td>
+            <td>@Html.TextBoxFor(model => model.LastName)</td>
         </tr>
         <tr>
             <td><input type="submit" value="Отправить" /></td>
@@ -21,4 +22,3 @@
         </tr>
     </table>
 </form>
-

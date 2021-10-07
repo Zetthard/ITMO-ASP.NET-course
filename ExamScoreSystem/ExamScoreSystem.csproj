@@ -133,7 +133,7 @@
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\ExamContext.cs" />
     <Compile Include="Models\ExamDbInitializer.cs" />
-    <Compile Include="Models\ExamMark.cs" />
+    <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -174,9 +174,11 @@
     <Content Include="Views\Home\Courses.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\AddStudent.cshtml" />
+    <Content Include="Views\Home\EnterExam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Courses\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
