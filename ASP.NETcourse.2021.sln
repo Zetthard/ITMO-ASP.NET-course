@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCCreditApp", "MVCCreditAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamScoreSystem", "ExamScoreSystem\ExamScoreSystem.csproj", "{BDDBDED2-32E3-4475-AC60-EBDF23164DC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUniversity", "ContosoUniversity\ContosoUniversity.csproj", "{D4B5FD46-0792-4810-A44A-3884098C7EF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BDDBDED2-32E3-4475-AC60-EBDF23164DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDDBDED2-32E3-4475-AC60-EBDF23164DC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDDBDED2-32E3-4475-AC60-EBDF23164DC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B5FD46-0792-4810-A44A-3884098C7EF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B5FD46-0792-4810-A44A-3884098C7EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B5FD46-0792-4810-A44A-3884098C7EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B5FD46-0792-4810-A44A-3884098C7EF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
