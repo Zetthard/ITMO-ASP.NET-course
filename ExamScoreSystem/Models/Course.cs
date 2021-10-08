@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,21 +9,10 @@ namespace ExamScoreSystem.Models
     public class Course
     {
         public int CourseId { get; set; }
+
+        [StringLength(60)]
         public string CourseName { get; set; }
 
-        public virtual List<Exam> CourseMarks { get; set; }
-
-        public override string ToString()
-        {
-            return CourseName;
-        }
-
-        public Course() { }
-
-        public Course(string name)
-        {
-            CourseName = name;
-            CourseMarks = new List<Exam>();
-        }
+        public virtual List<Exam> Exams { get; set; }
     }
 }

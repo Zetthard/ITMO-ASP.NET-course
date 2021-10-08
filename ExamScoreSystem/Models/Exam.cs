@@ -10,14 +10,12 @@ namespace ExamScoreSystem.Models
     public class Exam
     {
         public int ExamId { get; set; }
+        public int StudentId { get; set; }
+        public int CourseId { get; set; }
 
-        private int mark;
+        private int? mark;
 
-        [Range(1, 5)]
-        public int Mark
-        {
-            get { return mark; }
-
+        public int? Mark { get => mark;
             set
             {
                 if (value >= 1 && value <= 5)
@@ -25,15 +23,8 @@ namespace ExamScoreSystem.Models
             }
         }
 
-        public Student StudentName { get; set; }
+        public virtual Student Student { get; set; }
 
-        public Course CourseName { get; set; }
-
-        //public Exam() { }
-
-        public Exam(int mark)
-        {
-            Mark = mark;
-        }
+        public virtual Course Course { get; set; }
     }
 }

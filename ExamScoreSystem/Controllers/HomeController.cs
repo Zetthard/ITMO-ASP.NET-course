@@ -13,14 +13,28 @@ namespace ExamScoreSystem.Controllers
 
         public ActionResult Index()
         {
-            GetStudents();
-            GetCourses();
-            return View();
+            return View(context.Students.ToList());
         }
 
         public ActionResult Students()
         {
             return View(context.Students.ToList());
+        }
+
+        public ActionResult StudentDetails(int? id)
+        {
+            Student student = context.Students.Find(id);
+            if (student == null)
+                return HttpNotFound();
+            return View(student);
+        }
+
+        public ActionResult CourseDetails(int? id)
+        {
+            Course course = context.Courses.Find(id);
+            if (course == null)
+                return HttpNotFound();
+            return View(course);
         }
 
         public ActionResult Courses()
@@ -68,12 +82,14 @@ namespace ExamScoreSystem.Controllers
         [HttpPost]
         public ActionResult EnterExam(Exam mark)
         {
-            GetStudents();
-            GetCourses();
             if (ModelState.IsValid)
             {
-                context.ExamMarks.Add(mark);
+                context.Exams.Add(mark);
                 context.SaveChanges();
+            }
+            else
+            {
+                return View("Courses", context.Courses);
             }
             return View();
         }

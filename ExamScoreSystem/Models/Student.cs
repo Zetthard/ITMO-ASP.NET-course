@@ -21,21 +21,12 @@ namespace ExamScoreSystem.Models
         [StringLength(50)]
         public string LastName { get; set; }
 
-        public virtual List<Exam> Marks { get; set; }
+        public virtual List<Exam> Exams { get; set; }
 
         public override string ToString()
         {
             string str = FirstName + " " + LastName;
             return str;
-        }
-
-        public Student() { }
-
-        public Student(string firstName, string lastName)
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            Marks = new List<Exam>();
         }
     }
 }

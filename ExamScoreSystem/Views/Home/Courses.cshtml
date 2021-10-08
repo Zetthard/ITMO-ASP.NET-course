@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Courses";
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 
 <div class="col-md-1">
     <table class="table-bordered" cellpadding="5">
@@ -13,7 +13,7 @@
         @foreach (var course in Model)
         {
             <tr>
-                <td><a href="/Home/EnterExam">@course</a></td>
+                <td><a href="/Home/CourseDetails/@course.CourseId">@course.CourseName</a></td>
             </tr>
         }
     </table>
