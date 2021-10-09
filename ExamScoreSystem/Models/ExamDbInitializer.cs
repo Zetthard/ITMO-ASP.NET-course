@@ -10,27 +10,40 @@ namespace ExamScoreSystem.Models
     {
         protected override void Seed(ExamContext context)
         {
-            context.Courses.Add(new Course { CourseName = "ADO.NET" });
-            context.Courses.Add(new Course { CourseName = "ASP.NET" });
-            context.Courses.Add(new Course { CourseName = "C# programming" });
-            context.Courses.Add(new Course { CourseName = "Databases" });
+            var courses = new List<Course>()
+            {
+                new Course { CourseName = "C# programming" },
+                new Course { CourseName = "Databases" },
+                new Course { CourseName = "ADO.NET" },
+                new Course { CourseName = "ASP.NET" }
+            };
 
-            context.Students.Add(new Student { FirstName = "Tom", LastName = "Soyer" });
-            context.Students.Add(new Student { FirstName = "Vinni", LastName = "Pooh" });
-            context.Students.Add(new Student { FirstName = "Alice", LastName = "Mirrorgirl" });
-            context.Students.Add(new Student { FirstName = "Tumba", LastName = "Lumumba" });
-            context.Students.Add(new Student { FirstName = "King", LastName = "Kong" });
-            context.Students.Add(new Student { FirstName = "Dragon", LastName = "Pu" });
-
+            courses.ForEach(item => context.Courses.Add(item));
             context.SaveChanges();
 
-            context.Exams.Add(new Exam { StudentId = 1, CourseId = 1, Mark = 3 });
-            context.Exams.Add(new Exam { StudentId = 1, CourseId = 2, Mark = 4 });
-            context.Exams.Add(new Exam { StudentId = 3, CourseId = 1, Mark = 5 });
-            context.Exams.Add(new Exam { StudentId = 4, CourseId = 1, Mark = 4 });
-            context.Exams.Add(new Exam { StudentId = 5, CourseId = 2, Mark = 5 });
+            var students = new List<Student>()
+            {
+                new Student { FirstName = "Tom", LastName = "Soyer" },
+                new Student { FirstName = "Vinni", LastName = "Pooh" },
+                new Student { FirstName = "Alice", LastName = "Mirrorgirl" },
+                new Student { FirstName = "Tumba", LastName = "Lumumba" },
+                new Student { FirstName = "King", LastName = "Kong" },
+                new Student { FirstName = "Dragon", LastName = "Pu" }
+            };
+
+            students.ForEach(item => context.Students.Add(item));
+            context.SaveChanges();
+
+            foreach(Course c in courses)
+            {
+                foreach(Student s in students)
+                {
+                    context.Exams.Add(new Exam {CourseId = c.CourseId, StudentId = s.StudentId });
+                }
+            }
 
             context.SaveChanges();
+            context.Exams.Where(c => c.CourseId == 1).ToList().ForEach(s => s.Mark = 5);
             //base.Seed(context);
         }
     }
