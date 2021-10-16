@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
 using ExamScoreSystem.Models;
+using System.Data;
+using System.Net;
 
 namespace ExamScoreSystem.Controllers
 {
@@ -42,18 +45,6 @@ namespace ExamScoreSystem.Controllers
             return View(context.Courses.ToList());
         }
 
-        private void GetCourses()
-        {
-            var allCourses = context.Courses.ToList();
-            ViewBag.Courses = allCourses;
-        }
-
-        private void GetStudents()
-        {
-            var allStudents = context.Students.ToList();
-            ViewBag.Students = allStudents;
-        }
-
         [HttpGet]
         public ActionResult AddStudent()
         {
@@ -72,26 +63,63 @@ namespace ExamScoreSystem.Controllers
         }
 
         [HttpGet]
-        public ActionResult EnterExam()
+        public ActionResult EditExam(int? sId, int? cId)
         {
-            GetStudents();
-            GetCourses();
-            return View();
+            Student student = context.Students.Find(sId);
+            var exam = from exams in context.Exams
+                       where exams.StudentId == sId && exams.CourseId == cId
+                       select exams;
+            if (student == null)
+                return HttpNotFound();
+            return View(exam);
         }
 
-        [HttpPost]
-        public ActionResult EnterExam(Exam mark)
+        [HttpPost, ActionName("EditExam")]
+        public ActionResult SubmitExam(int? id)
         {
-            if (ModelState.IsValid)
+            if (id == null)
             {
-                context.Exams.Add(mark);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Exam exam = context.Exams.Find(id);
+            try
+            {
+                context.Entry(exam).State = EntityState.Modified;
                 context.SaveChanges();
             }
-            else
+            catch (DataException)
             {
-                return View("Courses", context.Courses);
+                ModelState.AddModelError("", "Unable to save changes");
             }
-            return View();
+            return RedirectToAction("CourseDetails", ViewBag.CourseId);
+            //return View();
+        }
+
+        [HttpPost, ActionName("SaveExam")]
+        public ActionResult SaveExam(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Course course = context.Courses.Find(id);
+            try
+            {
+                context.Entry(course).State = EntityState.Modified;
+                context.SaveChanges();
+                //return RedirectToAction("CourseDetails", id);
+            }
+            catch (DataException)
+            {
+                ModelState.AddModelError("", "Unable to save changes");
+            }
+            return View(course);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            context.Dispose();
+            base.Dispose(disposing);
         }
     }
 }

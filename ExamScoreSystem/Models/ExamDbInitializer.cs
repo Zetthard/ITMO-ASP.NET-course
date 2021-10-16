@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Xml.Linq;
 
 namespace ExamScoreSystem.Models
 {
@@ -43,7 +44,11 @@ namespace ExamScoreSystem.Models
             }
 
             context.SaveChanges();
-            context.Exams.Where(c => c.CourseId == 1).ToList().ForEach(s => s.Mark = 5);
+            context.Exams.Where(c => c.CourseId == 1).ToList().ForEach(s => s.Mark = 5);  //option 1
+            foreach(var exam in context.Exams.Where(c => c.CourseId == 2)) //option 2
+            {
+                exam.Mark = 5;
+            }
             //base.Seed(context);
         }
     }

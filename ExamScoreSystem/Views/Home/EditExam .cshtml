@@ -1,0 +1,34 @@
+﻿@model ExamScoreSystem.Models.Exam
+
+@{
+    ViewBag.Title = "EditExam";
+}
+
+<h2>@Model.Course.CourseName</h2>
+
+@using (Html.BeginForm()) 
+{
+<div>
+    <table class="table-bordered">
+        <tr>
+            <th>ФИО студента</th>
+            <th>Оценка</th>
+        </tr>
+        <tr>
+            <td>
+                @Model.Student.ToString()
+                @Html.HiddenFor(Model => Model.StudentId) <!--test-->
+                @Html.HiddenFor(Model => Model.CourseId) <!--test-->
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.Mark);
+            </td>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Courses") |
+    @Html.ActionLink("Save", "EditExam", new { id = Model.ExamId }) |
+    <input type="submit" value="Save"/>
+</p>
+}

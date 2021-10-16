@@ -6,22 +6,15 @@ using System.Linq;
 using System.Web;
 
 namespace ExamScoreSystem.Models
-{ 
+{
     public class Exam
     {
         public int ExamId { get; set; }
         public int StudentId { get; set; }
         public int CourseId { get; set; }
 
-        private int? mark;
-
-        public int? Mark { get => mark;
-            set
-            {
-                if (value >= 1 && value <= 5)
-                    mark = value;
-            }
-        }
+        [Range(1, 5, ErrorMessage = "Must be between 1 and 5")]
+        public int? Mark { get; set; }
 
         public virtual Student Student { get; set; }
 

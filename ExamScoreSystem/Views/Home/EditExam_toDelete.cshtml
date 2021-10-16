@@ -6,21 +6,24 @@
 
 <h2>@Model.CourseName</h2>
 
+@using (Html.BeginForm()) 
+{
 <div>
     <table class="table-bordered">
         <tr>
             <th>ФИО студента</th>
-            <th colspan="2">Оценка</th>
+            <th>Оценка</th>
         </tr>
         @foreach (var exam in Model.Exams)
         {
             <tr>
-                <td>@exam.Student.ToString()</td>
                 <td>
-                    @Html.DisplayFor(modelItem => exam.Mark)
+                    @exam.Student.ToString()
+                    @Html.HiddenFor(Model => exam.StudentId) <!--test-->
+                    @Html.HiddenFor(Model => exam.CourseId) <!--test-->
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "EditExam", new { sId = exam.StudentId, cId = Model.CourseId } )
+                    @Html.EditorFor(Model => exam.Mark);
                 </td>
             </tr>
         }
@@ -28,5 +31,7 @@
 </div>
 <p>
     @Html.ActionLink("Back to List", "Courses") |
-    @Html.ActionLink("Edit Exams", "EditExam", new { id = Model.CourseId })
+    @Html.ActionLink("Save", "EditExam", new { id = Model.CourseId }) |
+    <input type="submit" value="Save"/>
 </p>
+}
