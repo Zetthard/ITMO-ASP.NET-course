@@ -8,12 +8,13 @@
 <div>
     <table class="table-bordered" cellpadding="5">
         <tr>
-            <td><h4>Название курса</h4></td>
+            <th>Название курса</th>
         </tr>
         @foreach (var course in Model)
         {
             <tr>
-                <td><a href="/Home/CourseDetails/@course.CourseId">@course.CourseName</a></td>
+                <td>@Html.DisplayFor(c => course.CourseName)</td>
+                <td>@Html.ActionLink("Details", "CourseDetails", new { id = course.CourseId })</td>
             </tr>
         }
     </table>

@@ -4,19 +4,19 @@
     ViewBag.Title = "StudentDetails";
 }
 
-<h2>@Model</h2>
+<h2>@Model.FullName</h2>
 
 <div>
     <table class="table-bordered">
         <tr>
-            <th>Оценки</th>
-            <th></th>
+            <th>Курс</th>
+            <th>Оценка</th>
         </tr>
         @foreach (var exam in Model.Exams)
         {
             <tr>
-                <td>@Html.DisplayFor(modelItem => exam.Course.CourseName)</td>
-                <td>@Html.DisplayFor(modelItem => exam.Mark)</td>
+                <td>@Html.ActionLink(exam.Course.CourseName, "CourseDetails", new { id = exam.CourseId })</td>
+                <td>@Html.DisplayFor(e => exam.Mark)</td>
             </tr>
         }
     </table>

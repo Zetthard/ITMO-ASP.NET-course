@@ -23,10 +23,13 @@ namespace ExamScoreSystem.Models
 
         public virtual List<Exam> Exams { get; set; }
 
-        public override string ToString()
+        [Display(Name = "Full Name")]
+        public string FullName
         {
-            string str = FirstName + " " + LastName;
-            return str;
+            get
+            {
+                return FirstName + " " + LastName;
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ namespace ExamScoreSystem.Models
         public int CourseId { get; set; }
 
         [Range(1, 5, ErrorMessage = "Must be between 1 and 5")]
+        [DisplayFormat(NullDisplayText = "No grade")]
         public int? Mark { get; set; }
 
         public virtual Student Student { get; set; }
