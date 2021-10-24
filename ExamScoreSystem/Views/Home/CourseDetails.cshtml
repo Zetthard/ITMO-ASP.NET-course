@@ -13,7 +13,7 @@
             <th>Оценка</th>
             <th></th>
         </tr>
-        @foreach (var exam in Model.Exams)
+        @foreach (var exam in Model.Exams) //need to iterate through student, not exams. Or not?
         {
             <tr>
                 <td>@Html.DisplayFor(e => exam.Student.FullName)</td>
@@ -29,5 +29,5 @@
 </div>
 <p>
     @Html.ActionLink("Back to List", "Courses") |
-    @Html.ActionLink("Edit Exams", "EditExam", new { id = Model.CourseId })
+    @Html.ActionLink("Add new", "AddExam", new { CourseId = Model.CourseId })
 </p>

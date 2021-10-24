@@ -31,19 +31,20 @@ namespace ExamScoreSystem.Controllers
                 return HttpNotFound();
             return View(student);
         }
+        public ActionResult Courses()
+        {
+            return View(context.Courses.ToList());
+        }
 
         public ActionResult CourseDetails(int? id)
         {
+            ViewBag.Students = context.Students.ToList(); //check if needed?
             Course course = context.Courses.Find(id);
             if (course == null)
                 return HttpNotFound();
             return View(course);
         }
 
-        public ActionResult Courses()
-        {
-            return View(context.Courses.ToList());
-        }
 
         [HttpGet]
         public ActionResult AddStudent()
@@ -65,55 +66,64 @@ namespace ExamScoreSystem.Controllers
         [HttpGet]
         public ActionResult EditExam(int? sId, int? cId)
         {
-            Student student = context.Students.Find(sId);
-            var exam = from exams in context.Exams
-                       where exams.StudentId == sId && exams.CourseId == cId
-                       select exams;
-            if (student == null)
+            Exam exam = context.Exams
+                .Include(s => s.Student)
+                .Include(c => c.Course)
+                .Where(s => s.StudentId == sId)
+                .Where(c => c.CourseId == cId)
+                .Single();
+            if (exam == null)
                 return HttpNotFound();
             return View(exam);
         }
 
         [HttpPost, ActionName("EditExam")]
-        public ActionResult SubmitExam(int? id)
+        public ActionResult SubmitExam(int? ExamId)
         {
-            if (id == null)
+            if (ExamId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Exam exam = context.Exams.Find(id);
-            try
+            Exam exam = context.Exams.Find(ExamId);
+            if (TryUpdateModel(exam, "", new string[] { "StudentId", "CourseId", "Mark", "ExamId" }))
             {
-                context.Entry(exam).State = EntityState.Modified;
-                context.SaveChanges();
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (DataException)
+                {
+                    ModelState.AddModelError("", "Unable to save changes");
+                }
             }
-            catch (DataException)
-            {
-                ModelState.AddModelError("", "Unable to save changes");
-            }
-            return RedirectToAction("CourseDetails", ViewBag.CourseId);
-            //return View();
+            return RedirectToAction("CourseDetails", new { id = exam.CourseId });
         }
 
-        [HttpPost, ActionName("SaveExam")]
-        public ActionResult SaveExam(int? id)
+        public ActionResult AddExam(int? CourseId)
+        {            
+            ICollection<Student> students = context.Students.ToList();
+
+            ViewBag.StudentId = new SelectList(students, "StudentId", "FullName");
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddExam([Bind(Include = "CourseId, StudentId, Mark")] Exam exam)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Course course = context.Courses.Find(id);
             try
             {
-                context.Entry(course).State = EntityState.Modified;
-                context.SaveChanges();
-                //return RedirectToAction("CourseDetails", id);
+                if (ModelState.IsValid)
+                {
+                    context.Exams.Add(exam);
+                    context.SaveChanges();
+                }
             }
             catch (DataException)
             {
                 ModelState.AddModelError("", "Unable to save changes");
             }
-            return View(course);
+            return RedirectToAction("CourseDetails", new { id = exam.CourseId });
         }
 
         protected override void Dispose(bool disposing)

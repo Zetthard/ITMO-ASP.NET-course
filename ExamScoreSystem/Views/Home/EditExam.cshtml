@@ -16,19 +16,19 @@
         </tr>
         <tr>
             <td>
-                @Model.Student.ToString()
-                @Html.HiddenFor(Model => Model.StudentId) <!--test-->
-                @Html.HiddenFor(Model => Model.CourseId) <!--test-->
+                @Html.DisplayFor(Model => Model.Student.FullName)
+                @Html.HiddenFor(Model => Model.StudentId)
+                @Html.HiddenFor(Model => Model.CourseId)
             </td>
             <td>
                 @Html.EditorFor(Model => Model.Mark);
+                @Html.HiddenFor(Model => Model.ExamId)
             </td>
         </tr>
     </table>
 </div>
 <p>
     @Html.ActionLink("Back to List", "Courses") |
-    @Html.ActionLink("Save", "EditExam", new { id = Model.ExamId }) |
     <input type="submit" value="Save"/>
 </p>
 }
