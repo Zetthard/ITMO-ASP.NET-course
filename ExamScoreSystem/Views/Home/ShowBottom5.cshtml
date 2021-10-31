@@ -1,13 +1,10 @@
 ﻿@model IEnumerable<ExamScoreSystem.Models.Student>
 
 @{
-    ViewBag.Title = "Students";
+    ViewBag.Title = "ShowBottom5";
 }
-<p class="row">
-    <h3>@ViewBag.Title</h3>
-    <a>@Html.ActionLink("Top 5", "ShowTop5")</a>
-    <a>@Html.ActionLink("Bottom 5", "ShowBottom5")</a>
-</p>
+
+<h2>Bottom 5 students</h2>
 
 <div>
     <table class="table-bordered">
@@ -25,6 +22,7 @@
             </tr>
         }
     </table>
-    <br />
-    <p><a class="btn btn-primary btn-default" href="/Home/AddStudent">Add new student&raquo;</a></p>
 </div>
+<p>
+    @Html.ActionLink("Back to List", "Students")
+</p>

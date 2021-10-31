@@ -45,11 +45,10 @@ namespace ExamScoreSystem.Models
 
             context.SaveChanges();
             context.Exams.Where(c => c.CourseId == 1).ToList().ForEach(s => s.Mark = 5);  //option 1
-            foreach(var exam in context.Exams.Where(c => c.CourseId == 2)) //option 2
+            foreach(var exam in context.Exams.Where(c => c.CourseId == 2)) //option 2 (better?)
             {
                 exam.Mark = 5;
             }
-            //base.Seed(context);
         }
     }
 }

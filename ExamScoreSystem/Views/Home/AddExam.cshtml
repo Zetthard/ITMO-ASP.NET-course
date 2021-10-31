@@ -3,12 +3,12 @@
 @{
     ViewBag.Title = "Add Exam"; 
 }
-<!--Пока не доделал-->
+
 <h3>Форма добавления экзамена</h3>
 <form method="post" action="">
     <table class="table">
         @Html.ValidationSummary(true)
-        <tr><th></th></tr> 
+        <tr><th>@ViewBag.CourseName</th></tr> 
         <tr>
             <td><p>Студент</p></td>
             <td>

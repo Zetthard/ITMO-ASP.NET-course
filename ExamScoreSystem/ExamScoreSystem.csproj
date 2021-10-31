@@ -174,15 +174,15 @@
     <Content Include="Views\Home\Courses.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\AddStudent.cshtml" />
-    <Content Include="Views\Home\EditExam_toDelete.cshtml" />
     <Content Include="Views\Home\StudentDetails.cshtml" />
     <Content Include="Views\Home\CourseDetails.cshtml" />
     <Content Include="Views\Home\EditExam.cshtml" />
     <Content Include="Views\Home\AddExam.cshtml" />
+    <Content Include="Views\Home\ShowTop5.cshtml" />
+    <Content Include="Views\Home\ShowBottom5.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Courses\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

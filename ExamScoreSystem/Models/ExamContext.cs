@@ -13,5 +13,10 @@ namespace ExamScoreSystem.Models
         public DbSet<Course> Courses { get; set; }
 
         public DbSet<Exam> Exams { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Exam>().HasKey(ex => new { ex.CourseId, ex.StudentId });
+        }
     }
 }

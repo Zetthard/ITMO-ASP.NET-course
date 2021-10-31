@@ -9,7 +9,6 @@ namespace ExamScoreSystem.Models
 {
     public class Exam
     {
-        public int ExamId { get; set; }
         public int StudentId { get; set; }
         public int CourseId { get; set; }
 

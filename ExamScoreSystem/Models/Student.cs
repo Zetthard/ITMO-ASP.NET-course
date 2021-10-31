@@ -21,6 +21,8 @@ namespace ExamScoreSystem.Models
         [StringLength(50)]
         public string LastName { get; set; }
 
+        public int? Total => GetTotal();
+
         public virtual List<Exam> Exams { get; set; }
 
         [Display(Name = "Full Name")]
@@ -30,6 +32,11 @@ namespace ExamScoreSystem.Models
             {
                 return FirstName + " " + LastName;
             }
+        }
+
+        public int? GetTotal()
+        {
+            return Exams.Sum(x => x.Mark);
         }
     }
 }
